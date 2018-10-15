@@ -5,10 +5,15 @@
              x:Class="GroupedListApp.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ListView x:Name ="listView" IsGroupingEnabled="true" 
+                  GroupDisplayBinding="{Binding LongName}" 
+                  GroupShortNameBinding="{Binding ShortName}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Nome}" Detail="{Binding Descricao}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>
